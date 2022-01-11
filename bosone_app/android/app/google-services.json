@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "276068307437",
+    "project_id": "bosone-ccbd3",
+    "storage_bucket": "bosone-ccbd3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276068307437:android:ebb33ffb8c3c45b2bed7e4",
+        "android_client_info": {
+          "package_name": "com.bosone.bosone_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "276068307437-2cktb2v7l3h5v0k1rp677i9p75j257fd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2SrrHTTWnobwOnADaddo63SOvY8o6FSw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "276068307437-2cktb2v7l3h5v0k1rp677i9p75j257fd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

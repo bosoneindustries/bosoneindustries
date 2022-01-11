@@ -52,7 +52,7 @@ class _LoginState extends State<Login> {
                   controller: _passwordField,
                   obscureText: true,
                   decoration: InputDecoration(
-                      hintText: 'password',
+                      hintText: 'Password',
                       hintStyle: TextStyle(
                         color: Colors.black,
                       ),
@@ -71,7 +71,7 @@ class _LoginState extends State<Login> {
                   child: MaterialButton(
                     onPressed: () async {},
                     child: Text(
-                      'Register',
+                      'Login',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
@@ -86,7 +86,7 @@ class _LoginState extends State<Login> {
                   child: MaterialButton(
                     onPressed: () async {},
                     child: Text(
-                      'Login',
+                      'Register',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
