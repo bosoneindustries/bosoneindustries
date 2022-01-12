@@ -16,6 +16,7 @@ class FireAuth {
       await user!.updateProfile(displayName: name);
       await user.reload();
       user = auth.currentUser;
+      user?.sendEmailVerification();
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak');
@@ -28,25 +29,29 @@ class FireAuth {
     return user;
   }
 
-  static Future<User?> signInUsingEmailPassword(
-      {required String email,
-      required String password,
-      required BuildContext context}) async {
+  static Future<User?> signInUsingEmailPassword({
+    required String email,
+    required String password,
+    required BuildContext context,
+  }) async {
     FirebaseAuth auth = FirebaseAuth.instance;
     User? user;
 
     try {
       UserCredential userCredential = await auth.signInWithEmailAndPassword(
-          email: email, password: password);
+        email: email,
+        password: password,
+      );
       user = userCredential.user;
     } on FirebaseAuthException catch (e) {
+      // print('Error: ${e.code}');
       if (e.code == 'user-not-found') {
-        print('No user found for that email');
+        print('No user found for that email.');
       } else if (e.code == 'wrong-password') {
-        print('Wrong password provided');
+        print('Wrong password provided.');
       }
-      return user;
     }
+    return user;
   }
 
   static Future<User?> refreshUser(User user) async {
@@ -54,5 +59,10 @@ class FireAuth {
     await user.reload();
     User? refreshedUser = auth.currentUser;
     return refreshedUser;
+  }
+
+  static Future<User?> signOutUser(User user) async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    await auth.signOut();
   }
 }
