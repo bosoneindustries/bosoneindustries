@@ -1,3 +1,4 @@
+import 'package:bosone_app/screens/home.dart';
 import 'package:bosone_app/screens/profile/profile_page.dart';
 import 'package:bosone_app/screens/register.dart';
 import 'package:bosone_app/services/fire_auth.dart';
@@ -95,8 +96,7 @@ class _LoginState extends State<Login> {
                           if (user != null) {
                             Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        ProfilePage(user: user)));
+                                    builder: (context) => Home(user: user)));
                           }
                         }
                       },
