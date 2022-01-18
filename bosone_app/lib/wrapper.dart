@@ -1,4 +1,5 @@
 import 'package:bosone_app/screens/authentication/login.dart';
+import 'package:bosone_app/screens/app.dart';
 import 'package:bosone_app/screens/profile/profile_page.dart';
 import 'package:bosone_app/services/fire_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -14,7 +15,7 @@ class Wrapper extends StatelessWidget {
     User? user = FirebaseAuth.instance.currentUser;
     if (user != null) {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (builder) => ProfilePage(user: user)));
+          MaterialPageRoute(builder: (builder) => App(user: user)));
     }
     return firebaseApp;
   }
