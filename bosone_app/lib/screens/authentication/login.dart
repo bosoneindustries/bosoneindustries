@@ -1,6 +1,6 @@
 import 'package:bosone_app/screens/app.dart';
 import 'package:bosone_app/screens/profile/profile_page.dart';
-import 'package:bosone_app/screens/register.dart';
+import 'package:bosone_app/screens/authentication/register.dart';
 import 'package:bosone_app/services/fire_auth.dart';
 import 'package:bosone_app/services/validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';

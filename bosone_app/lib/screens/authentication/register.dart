@@ -3,7 +3,7 @@ import 'package:bosone_app/services/validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import 'profile/profile_page.dart';
+import '../profile/profile_page.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);

@@ -1,4 +1,4 @@
-import 'package:bosone_app/wrapper.dart';
+import 'package:bosone_app/spash.dart';
 import 'package:flutter/material.dart';
 
 const String SplashPath = '/Splash';
