@@ -11,7 +11,7 @@ class Wrapper extends StatelessWidget {
 
   Future<FirebaseApp> _initializeFirebase(BuildContext context) async {
     FirebaseApp firebaseApp = await Firebase.initializeApp();
-    FireAuth thisAuth = FireAuth();
+    //FireAuth thisAuth = FireAuth();
     User? user = FirebaseAuth.instance.currentUser;
     if (user != null) {
       Navigator.of(context).pushReplacement(
@@ -29,7 +29,7 @@ class Wrapper extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.done) {
             return Login();
           }
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         },

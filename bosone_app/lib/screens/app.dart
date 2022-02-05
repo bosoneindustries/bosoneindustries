@@ -14,6 +14,14 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   late User? _currentUser;
 
+  int _selectedIndex = 0; // Index for Bottom Navigation Bar
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   void initState() {
     _currentUser = widget.user;
@@ -26,9 +34,17 @@ class _AppState extends State<App> {
       body: Center(child: Text('App')),
       bottomNavigationBar: BottomNavigationBar(
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.dashboard), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile')
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dashboard),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          )
         ],
+        onTap: _onItemTapped,
+        currentIndex: _selectedIndex,
       ),
     );
   }
