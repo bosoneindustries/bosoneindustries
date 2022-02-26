@@ -19,15 +19,30 @@ class PageConfiguration {
   final String key;
   final String path;
   final Pages uiPage;
-  PageConfiguration(
-      {required this.key, required this.path, required this.uiPage});
+  PageConfiguration({
+    required this.key,
+    required this.path,
+    required this.uiPage,
+  });
 }
 
-PageConfiguration wrapperPageConfig =
-    PageConfiguration(key: 'Splash', path: SplashPath, uiPage: Pages.Splash);
-PageConfiguration loginPageConfig =
-    PageConfiguration(key: 'Login', path: LoginPath, uiPage: Pages.Login);
-PageConfiguration signupPageConfig =
-    PageConfiguration(key: 'Signup', path: SignupPath, uiPage: Pages.Signup);
-PageConfiguration homepageConfig =
-    PageConfiguration(key: 'Home', path: HomePath, uiPage: Pages.Home);
+PageConfiguration wrapperPageConfig = PageConfiguration(
+  key: 'Splash',
+  path: SplashPath,
+  uiPage: Pages.Splash,
+);
+PageConfiguration loginPageConfig = PageConfiguration(
+  key: 'Login',
+  path: LoginPath,
+  uiPage: Pages.Login,
+);
+PageConfiguration signupPageConfig = PageConfiguration(
+  key: 'Signup',
+  path: SignupPath,
+  uiPage: Pages.Signup,
+);
+PageConfiguration homepageConfig = PageConfiguration(
+  key: 'Home',
+  path: HomePath,
+  uiPage: Pages.Home,
+);

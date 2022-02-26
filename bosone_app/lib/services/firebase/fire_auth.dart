@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:bosone_app/globals.dart' as globals;
 
 class FireAuth {
   static Future<User?> registerUsingEmailPasswords({
@@ -13,7 +14,7 @@ class FireAuth {
       UserCredential userCredential = await auth.createUserWithEmailAndPassword(
           email: email, password: password);
       user = userCredential.user;
-      await user!.updateProfile(displayName: name);
+      await user!.updateDisplayName(name);
       await user.reload();
       user = auth.currentUser;
       user?.sendEmailVerification();
@@ -61,8 +62,14 @@ class FireAuth {
     return refreshedUser;
   }
 
-  static Future<User?> signOutUser(User user) async {
+  static Future<void> signOutUser(User? user) async {
     FirebaseAuth auth = FirebaseAuth.instance;
-    await auth.signOut();
+    try {
+      await auth.signOut();
+    } catch (e) {
+      print(e.toString());
+    }
+
+    globals.isLoggedIn = false;
   }
 }

@@ -10,9 +10,10 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Dashboard'),
-      ),
+      body: Column(children: [
+        Text('Dashboard'),
+        Image(image: AssetImage('assets/bosone.png')),
+      ]),
     );
   }
 }

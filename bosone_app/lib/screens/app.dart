@@ -1,18 +1,23 @@
+import 'dart:async';
 import 'dart:ui';
+import 'package:bosone_app/globals.dart' as globals;
 
+import 'package:bosone_app/screens/dashboard.dart';
+import 'package:bosone_app/screens/nav_drawer.dart';
+import 'package:bosone_app/screens/profile/profile_page.dart';
+import 'package:bosone_app/spash.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatefulWidget {
-  final User? user;
-  const App({required this.user});
+  const App();
 
   @override
   _AppState createState() => _AppState();
 }
 
 class _AppState extends State<App> {
-  late User? _currentUser;
+  //late User? _currentUser;
 
   int _selectedIndex = 0; // Index for Bottom Navigation Bar
 
@@ -24,16 +29,35 @@ class _AppState extends State<App> {
 
   @override
   void initState() {
-    _currentUser = widget.user;
+    FirebaseAuth.instance.authStateChanges().listen((firebaseUser) {
+      if (firebaseUser == null) {
+        globals.isLoggedIn = false;
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (builder) => const Splash()));
+      }
+    });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('App')),
+      drawer: NavDrawer(globals.user),
+      appBar: AppBar(
+        title: Text("MyApp"),
+        backgroundColor: Colors.grey[800],
+      ),
+      body: SafeArea(
+        child: IndexedStack(
+          children: [
+            Dashboard(),
+            ProfilePage(),
+          ],
+          index: _selectedIndex,
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.dashboard),
             label: 'Home',
